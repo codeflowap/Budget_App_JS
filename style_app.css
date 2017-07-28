@@ -1,5 +1,18 @@
+/**********************************************
+*** GENERAL
+**********************************************/
+
+
+
+
+/**********************************************
+*** TOP PART
+**********************************************/
+
 .top {
-    height: 45hv;
-    background-image: url(budget.jpg);
+    height: 250px;;
+    background-image: url(back.png);
     background-size: cover;
+    background-position: center;
+    position: relative;
 }
