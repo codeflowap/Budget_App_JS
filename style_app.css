@@ -169,6 +169,25 @@ body {
     margin-left: 10px;
 }
 
+.income {
+    float: left;
+    width: 475px;
+    margin-right: 50px;
+}
+
+.expenses {
+    float: left;
+    width: 475px;
+}
+
+.icome__title { color: #28B9B5; }
+.expenses__title { color: #FF5049; }
+
+.container {
+    width: 1000px;
+    margin: 60px auto;
+}
+
 
 
 
