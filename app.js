@@ -16,8 +16,7 @@ var UIController = (function() {
 // GLOBAL APP CONTROLLER
 var Controller = (function(budgetctrl, UICtrl) {
     
-
-    document.querySelector('.add__btn').addEventListener('click', function() {
+    var ctrlAddItem = function() {
         
         // 1. Get the field input data
         
@@ -32,6 +31,19 @@ var Controller = (function(budgetctrl, UICtrl) {
         
         
         // 5. Display the budget
+        
+    }
+
+    document.querySelector('.add__btn').addEventListener('click', ctrlAddItem);
+    
+    // Key press even listener on the global web page on the document
+    document.addEventListener('keypress', function(event) {
+        
+       if (event.keyCode === 13) {
+           
+           ctrlAddItem();
+           
+       } 
         
     })
     
