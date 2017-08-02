@@ -40,8 +40,21 @@ var UIController = (function() {
 // GLOBAL APP CONTROLLER
 var Controller = (function(budgetctrl, UICtrl) {
     
+    var setupEventListeners = function() {
+        var DOM = UICtrl.getDOMstrings();
+        
+        document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
+        
+        // Making EnterKey available to add data
+        document.addEventListener('keypress', function(event) {
+            if (event.keyCode === 13) { 
+                ctrlAddItem();
+            }
+        });  
+    };
+    
     // We have DOMstrings to call classes. But it is private for UICtrl. We need another private var for Controller.
-    var DOM = UICtrl.getDOMstrings();
+    
     
     var ctrlAddItem = function() {
         
@@ -60,27 +73,21 @@ var Controller = (function(budgetctrl, UICtrl) {
         
         // 5. Display the budget
         
-    }
+    };
 
-    document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
+    // making setupEventLisneter public to other finctions
+    return {
+        init: function() {
+            console.log('App has started');
+            setupEventListeners();
+        }
+    }
     
-    // Key press even listener on the global web page on the document
-    document.addEventListener('keypress', function(event) {
-        
-       if (event.keyCode === 13) {
-           
-           ctrlAddItem();
-           
-       } 
-        
-    })
     
 })(budgetcontroller, UIController);
 
 
-
-
-
+Controller.init();
 
 
 
