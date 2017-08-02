@@ -7,7 +7,14 @@ var budgetcontroller = (function() {
 
 
 var UIController = (function() {
-   
+    
+    // To avoid calling class names in querySelector
+    var DOMstrings = {
+        inputType: '.add__type',
+        inputDescription: '.add__description',
+        inputValue: '.add__value'
+    };
+    
     return {
         getInput: function() {
             return {
