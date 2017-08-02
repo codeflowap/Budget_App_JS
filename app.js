@@ -12,7 +12,8 @@ var UIController = (function() {
     var DOMstrings = {
         inputType: '.add__type',
         inputDescription: '.add__description',
-        inputValue: '.add__value'
+        inputValue: '.add__value',
+        inputBtn: '.add__btn'
     };
     
     return {
@@ -24,8 +25,13 @@ var UIController = (function() {
             };
 
             
+        },
+        
+        // (function() {}) method makes everything private. Here, we expose DOMstrings as public
+        getDOMstrings: function() {
+            return DOMstrings;
         }
-    }
+    };
     
 })();
 
@@ -33,6 +39,9 @@ var UIController = (function() {
 
 // GLOBAL APP CONTROLLER
 var Controller = (function(budgetctrl, UICtrl) {
+    
+    // We have DOMstrings to call classes. But it is private for UICtrl. We need another private var for Controller.
+    var DOM = UICtrl.getDOMstrings();
     
     var ctrlAddItem = function() {
         
@@ -53,7 +62,7 @@ var Controller = (function(budgetctrl, UICtrl) {
         
     }
 
-    document.querySelector('.add__btn').addEventListener('click', ctrlAddItem);
+    document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
     
     // Key press even listener on the global web page on the document
     document.addEventListener('keypress', function(event) {
