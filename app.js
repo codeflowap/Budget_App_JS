@@ -7,7 +7,18 @@ var budgetcontroller = (function() {
 
 
 var UIController = (function() {
-    
+   
+    return {
+        getInput: function() {
+            return {
+            type: document.querySelector(DOMstrings.inputType).value, // Will be either inc or exp
+            description: document.querySelector(DOMstrings.inputDescription).value, 
+            value: document.querySelector(DOMstrings.inputValue).value         
+            };
+
+            
+        }
+    }
     
 })();
 
@@ -19,7 +30,8 @@ var Controller = (function(budgetctrl, UICtrl) {
     var ctrlAddItem = function() {
         
         // 1. Get the field input data
-        
+        var input = UIController.getInput();
+        console.log(input);
         
         // 2. Add the item to the budget controller
         
